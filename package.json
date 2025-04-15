@@ -14,7 +14,8 @@
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^6.4.7",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-spotify-web-playback-sdk": "^3.0.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

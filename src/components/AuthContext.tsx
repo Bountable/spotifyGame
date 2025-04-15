@@ -9,6 +9,8 @@ interface AuthContextType {
     logout: () => void;
 }
 
+
+
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
@@ -35,7 +37,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         }
 
         authenticate();
-    }, [accessToken]);
+    }, [accessToken ]); // This will run only once when the component mounts
 
     const login = () => {
         redirectToAuthCodeFlow();
@@ -74,9 +76,16 @@ async function redirectToAuthCodeFlow() {
         client_id: clientId,
         response_type: "code",
         redirect_uri: redirectUri,
-        scope: "user-read-private user-read-email user-top-read",
         code_challenge_method: "S256",
         code_challenge: challenge,
+        scope: [
+            "streaming",
+            "user-read-email",
+            "user-read-private",
+            "user-modify-playback-state",
+            "user-read-playback-state",
+            "playlist-read-private"
+        ].join(" ")
     });
 
     window.location.href = `https://accounts.spotify.com/authorize?${params.toString()}`;
