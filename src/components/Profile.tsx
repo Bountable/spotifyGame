@@ -49,13 +49,13 @@ const Profile = () => {
                     Login With Spotify
                 </Button>
             ) : (
-                <Card sx={{ width: 400, bgcolor: "#181818", color: "white", borderRadius: 3, boxShadow: 5, textAlign: "center" }}>
+                <Card sx={{ width: 350, bgcolor: "#121212", color: "white", borderRadius: 3, boxShadow: 5, textAlign: "center" }}>
                     <CardHeader
                         avatar={
                             <Avatar
                                 src={profile?.images?.[0]?.url || "/static/images/default-profile.jpg"}
                                 alt="Profile"
-                                sx={{ width: 80, height: 80, margin: "auto", border: "3px solid #1DB954" }}
+                                sx={{ width: 70, height: 80, margin: "auto", border: "3px solid #1DB954" }}
                             />
                         }
                         title={

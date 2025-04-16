@@ -1,4 +1,4 @@
-const clientId = "7d9e1b0faa364461b6a37982038bf48f";
+const clientId =  import.meta.env.VITE_SPOTIFY_CLIENT_ID; // Ensure this is set in your .env file
 const params = new URLSearchParams(window.location.search);
 const code = params.get("code"); // Retrieve code from URL
 

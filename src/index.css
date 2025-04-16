@@ -12,7 +12,37 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.shake {
+  animation: shake 0.5s ease-in-out;
+  animation-iteration-count: 3;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+  animation-direction: alternate;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  animation-name: shake;
+  
+}
+@keyframes shake {
+  0% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(-2px, -2px);
+  }
+  50% {
+    transform: translate(2px, -2px);
+  }
+  75% {
+    transform: translate(-2px, 2px);
+  }
+  100% {
+    transform: translate(0);
+  }
 
+}
+
+/* src/index.css */
 a {
   font-weight: 500;
   color: #646cff;
@@ -28,6 +58,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: black;
 }
 
 h1 {

@@ -7,13 +7,14 @@ interface Playlist {
     name: string;
     images?: { url: string }[];
 }
+ 
 
 const PlayList = ({ setPlaylistUrl }: { setPlaylistUrl: (url: string) => void }) => {
 
     const { accessToken } = useAuth();
     const [playlist, setPlaylist] = useState<Playlist | null>(null);
     const [url, setUrl] = useState<string | null>(null);
-    const [inputValue, setInputValue] = useState(""); // Track input text
+    const [inputValue, setInputValue] = useState(""); 
 
     useEffect(() => {
         if (!accessToken || !url) return;
@@ -54,7 +55,7 @@ const PlayList = ({ setPlaylistUrl }: { setPlaylistUrl: (url: string) => void })
 
         <Box
          onChange={(e) => setUrl((e.target as HTMLInputElement).value)}
-         sx={{ textAlign: "center", bgcolor: "#121212", p: 3, borderRadius: "16px", border: "3px solid #1DB954", width: "350px" } }>
+         sx={{ textAlign: "center", bgcolor: "#121212", p: 3, borderRadius: "16px", border: "3px solid #1DB954", width: "300px" } }>
             {playlist ? (
                 <>
                     <Avatar
@@ -76,6 +77,7 @@ const PlayList = ({ setPlaylistUrl }: { setPlaylistUrl: (url: string) => void })
                     variant="outlined"
                     id="playlist-url"
                     onChange={(e) => setInputValue(e.target.value)} 
+                    value={inputValue}
                 sx={{
                     "& .MuiOutlinedInput-root": {
                         color: "white", // Text color white
@@ -101,13 +103,7 @@ const PlayList = ({ setPlaylistUrl }: { setPlaylistUrl: (url: string) => void })
 
             )}
            
-         <Button
-            onClick={handleEnterClick} // ✅ Call function on click
-            variant="contained"
-            sx={{ bgcolor: "#1DB954", mt: 2, width: "100%" }}
-         >
-         Enter
-        </Button>
+      
       
         </Box>
     );
