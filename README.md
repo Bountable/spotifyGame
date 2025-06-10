@@ -26,6 +26,22 @@ Built with:
 
     Score points for correct guesses — see how many you can get!
 
+🛠️ Setup & Installation
 
+    Clone the repo:
+
+git clone https://github.com/yourusername/shufflify.git
+cd shufflify
+
+    Install dependencies:
+
+npm install
+
+
+    Run the app:
+
+npm run dev
+
+Now open: http://localhost:5173
   ![image](https://github.com/user-attachments/assets/c9140a69-9a2e-4848-855e-bd013bdcdb31)
 
