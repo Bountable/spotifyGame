@@ -44,12 +44,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     authenticate();
   }, [accessToken, authenticating]);
 
-  useEffect(() => {
-    const hasCode = new URLSearchParams(window.location.search).get("code");
-    if (!accessToken && !hasCode) {
-      redirectToAuthCodeFlow();
-    }
-  }, []);
 
   const login = () => {
     redirectToAuthCodeFlow();

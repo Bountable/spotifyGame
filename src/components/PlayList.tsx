@@ -1,13 +1,13 @@
-import { Box, Typography, Avatar, Button, TextField, colors } from "@mui/material";
+import { Box, Typography, Avatar, Button, TextField,  } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
-import Game from "./Game";
 
 interface Playlist {
     name: string;
     images?: { url: string }[];
 }
  
+
 
 const PlayList = ({ setPlaylistUrl }: { setPlaylistUrl: (url: string) => void }) => {
 
@@ -40,11 +40,11 @@ const PlayList = ({ setPlaylistUrl }: { setPlaylistUrl: (url: string) => void })
         fetchPlaylist();
     }, [accessToken, url]);
 
-    const handleEnterClick = () => {
-        if (inputValue.trim()) {
-            setUrl(inputValue);
-        }
-    };
+    // const handleEnterClick = () => {
+    //     if (inputValue.trim()) {
+    //         setUrl(inputValue);
+    //     }
+    // };
 
     const handleUseThisClick = () => {
         setPlaylistUrl(inputValue)
@@ -55,7 +55,7 @@ const PlayList = ({ setPlaylistUrl }: { setPlaylistUrl: (url: string) => void })
 
         <Box
          onChange={(e) => setUrl((e.target as HTMLInputElement).value)}
-         sx={{ textAlign: "center", bgcolor: "#121212", p: 3, borderRadius: "16px", border: "3px solid #1DB954", width: "300px" } }>
+         sx={{ textAlign: "center", bgcolor: "#121212", p: 3, borderRadius: "16px", border: "3px solid #1DB954", width: "300px",   } }>
             {playlist ? (
                 <>
                     <Avatar
@@ -69,6 +69,41 @@ const PlayList = ({ setPlaylistUrl }: { setPlaylistUrl: (url: string) => void })
                     <Button variant="contained" sx={{ bgcolor: "#1DB954", mt: 2, width: "100%" }} onClick={handleUseThisClick}>
                         Use This
                     </Button>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <TextField 
+                        label="Enter Playlist URL"
+                        
+                        variant="outlined"
+                        id="playlist-url"
+                        onChange={(e) => setInputValue(e.target.value)} 
+                        value={inputValue}
+                    sx={{
+                        "& .MuiOutlinedInput-root": {
+                            color: "white", // Text color white
+                            "& fieldset": {
+                                borderColor: "#1DB954", // Green border
+                            },
+                            "&:hover fieldset": {
+                                borderColor: "#1DB954", // Green border on hover
+                            },
+                            "&.Mui-focused fieldset": {
+                                borderColor: "#1DB954", // Green border on focus
+                            },
+                        },
+                        "& .MuiInputLabel-root": {
+                            color: "white", // Label color white
+                        },
+                        "& .MuiInputLabel-root.Mui-focused": {
+                            color: "#1DB954", // Green label on focus
+                        },
+                    }}
+                    focused
+                 />
+                    
+                    
+                    
                 </> 
             ) : (
                 <TextField 
@@ -102,10 +137,9 @@ const PlayList = ({ setPlaylistUrl }: { setPlaylistUrl: (url: string) => void })
             />
 
             )}
-           
-      
       
         </Box>
+
     );
 };
 

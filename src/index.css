@@ -13,6 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 .shake {
+  background-color: red;
   animation: shake 0.5s ease-in-out;
   animation-iteration-count: 3;
   animation-fill-mode: forwards;

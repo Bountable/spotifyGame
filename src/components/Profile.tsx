@@ -4,8 +4,16 @@ import { useAuth } from "./AuthContext"; // Import the authentication context
 
 const Profile = () => {
     const { accessToken, login, logout } = useAuth(); // Use the token from context
-    const [profile, setProfile] = useState(null);
-    const [loading, setLoading] = useState(true);
+    interface Profile {
+        display_name?: string;
+        email?: string;
+        images?: { url: string }[];
+        followers?: { total: number };
+        product?: string;
+    }
+
+    const [profile, setProfile] = useState<Profile | null>(null);
+
 
     
     // const commonStyles = {
@@ -34,22 +42,21 @@ const Profile = () => {
             } catch (error) {
                 console.error(error);
                 logout();
-            } finally {
-                setLoading(false);
-            }
+            } 
         }
 
         fetchProfile();
     }, [accessToken]);
 
     return (
-        <Box sx={{ border: 3, borderRadius: '16px', borderColor: "#1DB954", display: "flex", justifyContent: "center", alignItems: "center", bgcolor: "#121212" }}>
+        <Box sx={{ border: 3, borderRadius: '16px', borderColor: "#1DB954", display: "flex", justifyContent: "center", alignItems: "center", bgcolor: "#121212", mb: 1, p: 2 }}>
             {!accessToken ? (
-                <Button variant="contained" sx={{ bgcolor: "#1DB954", fontSize: "1.2rem", padding: "10px 20px" }} onClick={login}>
+                
+                <Button variant="contained" sx={{ bgcolor: "black", fontSize: "1.2rem", padding: "10px 20px", borderRadius: "16px"  }} onClick={login}>
                     Login With Spotify
                 </Button>
             ) : (
-                <Card sx={{ width: 350, bgcolor: "#121212", color: "white", borderRadius: 3, boxShadow: 5, textAlign: "center" }}>
+                <Card sx={{ width: 315, bgcolor: "#121212", color: "white", borderRadius: 3, boxShadow: 5, textAlign: "center",  }}>
                     <CardHeader
                         avatar={
                             <Avatar
