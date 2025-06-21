@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
-const  redirectUri = "http://localhost:5173";
+const  redirectUri = "https://shufflify.pages.dev/";
 
 
 interface AuthContextType {
